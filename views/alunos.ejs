@@ -1,0 +1,133 @@
+
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Truculenta:opsz,wght@12..72,100..900&display=swap" rel="stylesheet">
+	<style>
+
+		body {
+		  font-family: "Truculenta" !important;
+		  background-color: #000; /* White background */
+		  color: #fff; /* Black text */
+		}
+
+		h1 {
+		  text-align: center; /* Center-align the heading */
+		  color: #fff; /* Orange color for heading */
+			margin-bottom:10px;
+			margin-top:30px;
+		}
+
+		form {
+		  max-width: 400px; /* Limit form width */
+		  margin: 0 auto; /* Center-align the form */
+		  padding: 20px; /* Add padding around the form */
+		  border: 1px solid #ff9c50; /* Orange border for form */
+		}
+
+		label {
+		  display: block; /* Display labels as block elements */
+		  margin-bottom: 10px; /* Add space below labels */
+		}
+
+		input[type="text"],
+		input[type="password"],
+		button {
+		  width: 100%; /* Full width for inputs and button */
+		  padding: 10px; /* Add padding to inputs and button */
+		  margin-bottom: 20px; /* Add space below inputs and button */
+		  box-sizing: border-box; /* Include padding in width calculation */
+		}
+
+		button {
+			background-color: #ffffff;
+			color: #000000;
+			border: none;
+			cursor: pointer;
+		}
+
+		.btn-pika {
+			background: aliceblue;
+		}
+
+		.btn-pika:hover {
+			background: aliceblue;
+			color: #000;
+		}
+		.table>:not(caption)>*>* {
+			/* padding: 0.5rem 0.5rem; */
+			color: var(--bs-table-color-state,var(--bs-table-color-type,var(--bs-table-color)));
+			background-color: var(--bs-table-bg);
+			/* border-bottom-width: var(--bs-border-width); */
+			/* box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state,var(--bs-table-bg-type,var(--bs-table-accent-bg))); */
+		}
+
+		a {
+			color: #6b94d1;
+			text-decoration: none;
+		}
+
+		.ok {
+			--bs-bg-opacity: 1;
+			background-color: #7aafff!important;
+		}
+		.display-6 {
+			margin-bottom:10px;
+			margin-top:30px;
+		}
+		footer {
+			font-family: "Truculenta" !important;
+		  position: fixed;
+		  bottom: 0;
+		  width: 100%;
+		  background-color: transparent;
+		  text-align: center;
+		  padding: 10px 0;
+		  color: #ffffff;
+			  font-size: 20px;
+		}
+
+	</style>
+  <title>By FOX</title>
+</head>
+<body class="dark">
+  <div class="container my-4 text-white">
+    <nav class="mb-4">
+      <a href="/sala/<%= token %>" class="btn btn-pika">Retornar</a>
+    </nav>
+    <div class="list-container">
+      <ul class="list-group">
+        <% alunos.forEach(aluno => { %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+    
+      <%= aluno.numeroChamada %> <%= aluno.nome %> - <%= aluno.serie %> <a href="/excluir/aluno/<%= aluno._id %>/<%= token %>" class="badge ok rounded-pill">DELETE</a>
+      </li>
+    <% }); %>
+      </ul>
+    </div>
+    <div class="mb-20">
+      <h2 class="display-6 mb-45 d-flex justify-content-center align-items-center">ADICIONAR ALUNO</h2>
+              <form action="/criar/aluno/<%= token %>" method="post">
+                
+              <div class="mb-3">
+                <label for="nome" class="form-label">NOME</label>
+                <input type="text" id="nome" name="nome" required>
+              </div>
+              <div class="mb-3">
+                <label for="serie" class="form-label ">SALA</label>
+                <input type="text" id="serie" name="serie" required>
+              </div>
+                <button class="btn btn-pika"type="submit">ADICIONAR</button>
+            </form>
+    </div>
+  </div>
+		  <footer>
+			  Designed and Developed by Chapa Fox
+		  </footer>
+</body>
+</html>
