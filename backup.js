@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const app = express();
 const port = 3000;
 
-const uri = "mongodb+srv://teste:vdPBdljOrHJthzk1@cluster0.2oybvky.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0y";
+const uri = "database/?retryWrites=true&w=majority&appName=Cluster0y";
 const client = new MongoClient(uri, {});
 
 async function connectDB() {
